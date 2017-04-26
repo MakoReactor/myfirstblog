@@ -12,7 +12,7 @@
 }
 
 .content {
-    
+    border: solid;
     width: 75%;
     margin-left: 40px;
     float: left;
