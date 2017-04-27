@@ -7,7 +7,15 @@
         <div class="date">
             <p>published: {{ post.published_date }}</p>
         </div>
-        <p>{{ post.text|truncatechars:400 }}</p>
+        <p class="text-justify">{{ post.text|truncatechars:400 }}</p>
     </div>
 {% endfor %}
 {% endblock %}
+
+<div>
+    {% block side %}
+    {% for post in posts %}
+         <p><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p>
+    {% endfor %}
+    {% endblock %}
+</div>
