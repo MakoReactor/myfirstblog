@@ -1,14 +1,28 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/base2.html' %}
+{% load static %}
+
 
 {% block content %}
-    
 
-    {% for post in posts %}
-        <div class="post">
+<h1 class="content-subhead">Rascunhos</h1>
+{% for post in posts %}
 
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
-            <p>{{ post.text|truncatechars:200 }}</p>
-        </div>
-    {% endfor %}
+<section class="post">
+    <header class="post-header">
+        
+        <h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+
+        <p class="post-meta">
+            By <a href="#" class="post-author">{{ post.author }}</a> Criado em {{ post.created_date }}
+        </p>
+    </header>
+
+    <div class="post-description">
+        <p class="text-justify">{{ post.text|truncatechars:400 }}</p>
+    </div>
+</section>
+{% endfor %}
 {% endblock %}
+
+
+

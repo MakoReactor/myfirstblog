@@ -1,21 +1,29 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/base2.html' %}
+{% load static %}
+
 
 {% block content %}
+
+<h1 class="content-subhead">Posts Recentes</h1>
 {% for post in posts %}
-<div class="post">                            
-    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-        <div class="date">
-            <p>published: {{ post.published_date }}</p>
-        </div>
+
+<section class="post">
+    <header class="post-header">
+        <img width="48" height="48" alt="Douglas&#x27;s avatar" class="post-avatar" src="{% static 'img/doug_pic.jpg' %}">
+
+        <h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+
+        <p class="post-meta">
+            By <a href="#" class="post-author">{{ post.author }}</a> Publicado em {{ post.published_date }}
+        </p>
+    </header>
+
+    <div class="post-description">
         <p class="text-justify">{{ post.text|truncatechars:400 }}</p>
     </div>
+</section>
 {% endfor %}
 {% endblock %}
 
-<div>
-    {% block side %}
-    {% for post in posts %}
-         <p><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p>
-    {% endfor %}
-    {% endblock %}
-</div>
+
+
