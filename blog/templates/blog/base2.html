@@ -24,6 +24,7 @@
            <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <!--<![endif]-->
 </head>
+
 <body>
 <div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-md-1-4">
@@ -47,11 +48,12 @@
                     {% endif %}            
                 </ul>
             </nav>
-            <ul class="nav-list">
-                    
+            <ul class="nav-list">                    
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="pure-button" href="{% url 'post_draft_list' %}">Rascunhos</a>
+                        <a class="pure-button" href="{% url 'post_new' %}">Novo Post</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="pure-button" href="{% url 'post_new' %}">Novo Post</a>
                     </li>
                     {% endif %}            
@@ -64,8 +66,7 @@
     <div class="content pure-u-1 pure-u-md-3-4">
         <div>
             <!-- A wrapper for all the blog posts -->
-            <div class="posts">
-                
+            <div class="posts">                
                 <!--  blog posts -->
                 {% block content %}
                 {% endblock %}
