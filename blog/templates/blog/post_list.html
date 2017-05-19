@@ -5,7 +5,7 @@
 {% block content %}
 
 <h1 class="content-subhead">Posts Recentes</h1>
-{% for post in posts %}
+{% for post in posts_paginados %}
 
 <section class="post">
     <header class="post-header">
@@ -23,9 +23,34 @@
 
     <div class="post-description">
         <p class="text-justify">{{ post.text|truncatechars:400 }}</p>
-    </div>
+    </div>   
+
 </section>
 {% endfor %}
+
+{% if posts_paginados.has_other_pages %}
+  <ul class="pagination">
+    {% if posts_paginados.has_previous %}
+      <li><a href="?page={{ users.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in posts_paginados.paginator.page_range %}
+      {% if posts_paginados.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if posts_paginados.has_next %}
+      <li><a href="?page={{ users.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+
 {% endblock %}
 
 
