@@ -72,4 +72,4 @@ def post_remove(request, pk):
 
 
 #assinatura do post feito com generics views
-post_list = PostList.as_view()
+#post_list = PostList.as_view()
