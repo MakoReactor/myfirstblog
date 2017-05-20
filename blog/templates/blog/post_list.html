@@ -5,11 +5,14 @@
 {% block content %}
 
 <h1 class="content-subhead">Posts Recentes</h1>
-{% for post in posts %}
+{% for post in posts_paginados %}
 
 <section class="post">
     <header class="post-header">
-        <img width="48" height="48" alt="Douglas&#x27;s avatar" class="post-avatar" src="{% static 'img/doug_pic.jpg' %}">
+        <img width="48" height="48" alt="Douglas&#x27;s avatar" class="post-avatar" src="https://lh3.googleusercontent.com/WZcwyp8K6eZ1hLH_yNO8uG3FUID52GAqaGYDrpwNNFCnDKvK4L_b2lakiaNUFGr1nQhSpKTWnNoIY-vKL8h4Kq2i3fNjp7VpF8hdRuQL-rJK4J9WC-cEMycgWNbgvCGf_w3Mkw">
+
+        
+                
 
         <h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
 
@@ -20,10 +23,12 @@
 
     <div class="post-description">
         <p class="text-justify">{{ post.text|truncatechars:400 }}</p>
-    </div>
+    </div>   
+
 </section>
 {% endfor %}
 
+<<<<<<< HEAD
 
 
 {% if is_paginated %}
@@ -35,18 +40,39 @@
     {% endif %}
     {% for i in paginator.page_range %}
       {% if page_obj.number == i %}
+=======
+{% if posts_paginados.has_other_pages %}
+  <ul class="pagination">
+    {% if posts_paginados.has_previous %}
+      <li><a href="?page={{ users.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in posts_paginados.paginator.page_range %}
+      {% if posts_paginados.number == i %}
+>>>>>>> e2764039380b949cfb85bc33eff9b9e27be5cc79
         <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
       {% else %}
         <li><a href="?page={{ i }}">{{ i }}</a></li>
       {% endif %}
     {% endfor %}
+<<<<<<< HEAD
     {% if page_obj.has_next %}
       <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+=======
+    {% if posts_paginados.has_next %}
+      <li><a href="?page={{ users.next_page_number }}">&raquo;</a></li>
+>>>>>>> e2764039380b949cfb85bc33eff9b9e27be5cc79
     {% else %}
       <li class="disabled"><span>&raquo;</span></li>
     {% endif %}
   </ul>
 {% endif %}
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e2764039380b949cfb85bc33eff9b9e27be5cc79
 {% endblock %}
 
 
