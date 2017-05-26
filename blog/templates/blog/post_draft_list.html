@@ -5,23 +5,33 @@
 {% block content %}
 
 <h1 class="content-subhead">Rascunhos</h1>
-{% for post in posts %}
+{% if posts %}
+    {% for post in posts %}
 
-<section class="post">
+    <section class="post">
+        <header class="post-header">
+            
+            <h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+
+            <p class="post-meta">
+                By <a href="#" class="post-author">{{ post.author }}</a> Criado em {{ post.created_date }}
+            </p>
+        </header>
+
+        <div class="post-description">
+            <p class="text-justify">{{ post.text|truncatechars:400 }}</p>
+        </div>
+
+     {% endfor %}
+     
+{% else %}
     <header class="post-header">
-        
-        <h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-
-        <p class="post-meta">
-            By <a href="#" class="post-author">{{ post.author }}</a> Criado em {{ post.created_date }}
-        </p>
-    </header>
-
-    <div class="post-description">
-        <p class="text-justify">{{ post.text|truncatechars:400 }}</p>
-    </div>
-</section>
-{% endfor %}
+        <h3 class="post-title">Não há rascunhos no momento.</h3>
+ 
+{% endif %}       
+    </header>   
+    </section>
+    
 {% endblock %}
 
 
