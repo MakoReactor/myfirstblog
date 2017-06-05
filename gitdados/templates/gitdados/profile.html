@@ -2,14 +2,36 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Àpenas mais um blog, feito em Django.">
+    
     <title>Git Data</title>
 </head>
 <body>
 {% block content %}
+
+    <style>
+      .form-signin {
+        max-width: 550px;
+        padding: 15px;
+        margin: 0 auto;
+                    }
+    </style>
+
+<div class="container text-center">
+    <form class="form-signin" id="login_form" method="post" action="gitdados/profile.html">
+    {% csrf_token %}
+
+    <br>
+
+    <input type="text" name="user" class="form-control" placeholder="Github User Name, ex: makoreactor" value="" required autofocus>
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Get Data</button>
+        
+    </form>
+    
+    
+</div>
+
+
 <h1 class="text-center"> Github User Data </h1> 
     <div class="col-lg-12"> 
         <div class="table-responsive"> 
@@ -40,7 +62,8 @@
                 </tbody>
             </table>
         </div>
+        {% endblock %}
     </div>
-{% endblock %}
+
 </body>
 </html>

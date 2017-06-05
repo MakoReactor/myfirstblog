@@ -4,5 +4,10 @@ from django.utils import timezone
 import requests
 
 def profile(request):
-    req = requests.get('https://api.github.com/users/makoreactor').json()
+    
+    if request.method == 'POST':
+        req = requests.get('https://api.github.com/users/{}'.format(username)).json()
+        username = request.POST.get('user')
+        
+
     return render(request, 'gitdados/profile.html', {"req":req})
