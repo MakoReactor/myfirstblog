@@ -19,29 +19,6 @@ def profile(request):
     return render(request, template_name, context)
 
 
-def teste(request):
-    template_name = 'gitdados/teste.html'
-    context = {}
-    
 
-    if request.method == 'POST':
-        form = form(data=request.POST)
-
-        if form.is_valid():
-            git_name = request.POST.get('git_name')            
-            context['git_name']=git_name          
-          
-
-        return redirect('teste')    
-
-    else:
-        form = GitDadosForm()
-
-
-        context['form']=form
-  
-
-
-    return render(request, template_name, context)
 
 

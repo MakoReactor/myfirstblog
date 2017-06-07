@@ -1,9 +1,9 @@
 from django.conf.urls import url
-from .views import profile, teste
+from .views import profile
 
 
 urlpatterns = [
     url(r'^$', profile, name='profile'),
-    url(r'^teste/$', teste, name='teste'),
+   
     
 ]
