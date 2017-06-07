@@ -1,8 +1,9 @@
 from django.conf.urls import url
-from . import views
+from .views import profile, teste
 
 
 urlpatterns = [
-    url(r'^$', views.profile, name='profile'),
+    url(r'^$', profile, name='profile'),
+    url(r'^teste/$', teste, name='teste'),
     
 ]
