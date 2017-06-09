@@ -156,6 +156,13 @@ h3 {
     background: none;
 }
 
+
+.form-signin {
+    max-width: 550px;
+    padding: 15px;
+    margin: 0 auto;
+                }
+    
 @media (min-width: 48em) {
     .content {
         padding: 2em 3em 0;

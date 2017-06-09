@@ -19,6 +19,10 @@ def profile(request):
     return render(request, template_name, context)
 
 
+def index(request):
+    template_name = 'gitdados/index.html'
+    context = {}
 
+    return render(request, template_name, context)
 
 
