@@ -10,7 +10,7 @@
         <p class="post-meta">
 
         <p class="post-meta">
-        By <a href="#" class="post-author">{{ post.author }}</a> Publicado em {{ post.published_date }}
+        By <a href="{% url 'index' %}" class="post-author">{{ post.author }}</a> Publicado em {{ post.published_date }}
         {% if user.is_authenticated %}
             <a class="post-category post-category-design" href="{% url 'post_edit' pk=post.pk %}">Editar</a> <a class="post-category post-category-js" href="{% url 'post_remove' pk=post.pk %}">Apagar</a>
             {% if not post.published_date %}
