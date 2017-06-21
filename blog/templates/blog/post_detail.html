@@ -7,25 +7,20 @@
         <h1 class="content-subhead">Post</h1>
 
         <h2 class="post-title"> {{ post.title }} </a></h2>
-        <p class="post-meta">            
+        <p class="post-meta">
 
         <p class="post-meta">
-        By <a href="#" class="post-author">{{ post.author }}</a> Publicado em {{ post.published_date }} 
+        By <a href="#" class="post-author">{{ post.author }}</a> Publicado em {{ post.published_date }}
         {% if user.is_authenticated %}
-            <a class="post-category post-category-design" href="{% url 'post_edit' pk=post.pk %}">Editar</a> <a class="post-category post-category-js" href="{% url 'post_remove' pk=post.pk %}">Apagar</a> 
+            <a class="post-category post-category-design" href="{% url 'post_edit' pk=post.pk %}">Editar</a> <a class="post-category post-category-js" href="{% url 'post_remove' pk=post.pk %}">Apagar</a>
             {% if not post.published_date %}
 
             <a class="post-category post-category-yui" href="{% url 'post_publish' pk=post.pk %}">Publicar</a>
             {% endif %}
-
         </p>
-
-
-
         {% endif %}
-        
     </header>
-
+    <br>
     <div class="post-description">
         <p class="text-justify">{{ post.text|linebreaksbr }}</p>
     </div>
