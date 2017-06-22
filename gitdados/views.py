@@ -5,14 +5,19 @@ import requests
 # Form import
 from .forms import GitDadosForm
 
+def marketing(request):
+    template_name = 'gitdados/marketing.html'
+    context = {}
+    return render(request, template_name, context)
+
 
 
 def profile(request):
     template_name = 'gitdados/profile.html'
     context = {}
-    
+
     if request.method == 'POST':
-        username = request.POST.get('user') 
+        username = request.POST.get('user')
         req = requests.get('https://api.github.com/users/{}'.format(username)).json()
         context['req']=req
 
@@ -24,5 +29,3 @@ def index(request):
     context = {}
 
     return render(request, template_name, context)
-
-
