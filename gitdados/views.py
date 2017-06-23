@@ -3,14 +3,25 @@ from django.shortcuts import render, get_object_or_404, redirect
 #from django.utils import timezone
 import requests
 # Form import
-from .forms import GitDadosForm
+from .forms import GitDadosForm, MeuCepForm
+
+def mycep(request):
+    template_name = 'gitdados/mycep.html'
+    context = {}
+
+    if request.method = "POST":
+        form = MeuCepForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            
+
+
+    return render(request, template_name, context)
 
 def marketing(request):
     template_name = 'gitdados/marketing.html'
     context = {}
     return render(request, template_name, context)
-
-
 
 def profile(request):
     template_name = 'gitdados/profile.html'
