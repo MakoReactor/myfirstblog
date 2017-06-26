@@ -59,17 +59,79 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Online Store</h1>
-    <p>Mission, Vission & Values</p>
+    <h1>Consulta Cep</h1>
+    <p>Saiba o nome pelo cep</p>
   </div>
 </div>
 
 
 <!--começa os dados da pagina  -->
 <div class="container">
-  {{ cep.as_p }}
+  <div class="row">
+    <div class="col-sm-4">
+      <form action="{% url 'cep' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" value="Submit" />
+      </form>
+    </div>  
+  </div>
+  <br>
+
+  
+  
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="table-responsive"> 
+            <table class="table table-bordered table-hover table-striped tablesorter"> 
+                <thead> 
+                    <tr> 
+                        
+                        <th class="header"> CEP<i class="icon-sort"></i></th>
+                        <th class="header"> Rua <i class="icon-sort"></i></th> 
+                        <th class="header"> Bairro <i class="icon-sort"></i></th> 
+                        <th class="header"> Cidade<i class="icon-sort"></i></th>
+                        <th class="header"> UF<i class="icon-sort"></i></th> 
+                        
+                       
+                    </tr> 
+                </thead> 
+                
+                <tbody>
+                    <tr>
+                        <td>{{ cep_data.cep }}</td>
+                        <td>{{ cep_data.logradouro }}</td>
+                        <td>{{ cep_data.bairro }}</td>
+                        <td>{{ cep_data.localidade }}</td>
+                        <td>{{ cep_data.uf }}</td>
+                                          
+                    </tr>                       
+                </tbody>
+                
+            </table>
+        </div> 
+      </div>         
+    </div>
+    
+
+  
+    
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div><br>
 <!--final dos dados da página-->
 
