@@ -1,14 +1,13 @@
 {% extends 'blog/base2.html' %}
-
-
-
 {% block content %}
 
 <h1 class="content-subhead">Posts Recentes</h1>
+
 {% for post in posts %}
 
 <section class="post">
     <header class="post-header">
+        <!--<img width="48" height="48" alt="Douglas&#x27;s avatar" class="post-avatar" src="https://lh3.googleusercontent.com/WZcwyp8K6eZ1hLH_yNO8uG3FUID52GAqaGYDrpwNNFCnDKvK4L_b2lakiaNUFGr1nQhSpKTWnNoIY-vKL8h4Kq2i3fNjp7VpF8hdRuQL-rJK4J9WC-cEMycgWNbgvCGf_w3Mkw"> -->
         <img width="48" height="48" alt="Douglas&#x27;s avatar" class="post-avatar" src="https://lh3.googleusercontent.com/WZcwyp8K6eZ1hLH_yNO8uG3FUID52GAqaGYDrpwNNFCnDKvK4L_b2lakiaNUFGr1nQhSpKTWnNoIY-vKL8h4Kq2i3fNjp7VpF8hdRuQL-rJK4J9WC-cEMycgWNbgvCGf_w3Mkw">
 
         <h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
@@ -24,6 +23,7 @@
 
 </section>
 {% endfor %}
+
 
 {% if is_paginated %}
   <ul class="pagination">

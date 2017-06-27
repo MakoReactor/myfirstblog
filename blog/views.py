@@ -14,8 +14,14 @@ class PostList(ListView):
     template_name = 'blog/post_list.html'
     context_object_name = 'posts'
     paginate_by = 3
-    queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
+    def get_queryset(self,):
+        #queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+
+
+#assinatura do post feito com generics views
+#posts_list = PostList.as_view()
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -62,8 +68,8 @@ def post_draft_list(request):
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.publish()
-    return redirect('post_detail', pk=pk)
-
+    #return redirect('post_detail', pk=pk)
+    return redirect('post_list')
 @login_required
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -71,5 +77,3 @@ def post_remove(request, pk):
     return redirect('post_list')
 
 
-#assinatura do post feito com generics views
-#post_list = PostList.as_view()
