@@ -72,7 +72,8 @@
       <form action="{% url 'cep' %}" method="post">
         {% csrf_token %}
         {{ form.as_p}}
-        <input type="submit" value="Submit" />
+        
+        <button class="btn btn-lg btn-primary btn-default" type="submit">Submeter</button>
       </form>
     </div>  
   </div>
@@ -87,11 +88,11 @@
                 <thead> 
                     <tr> 
                         
-                        <th class="header"> CEP<i class="icon-sort"></i></th>
-                        <th class="header"> Rua <i class="icon-sort"></i></th> 
-                        <th class="header"> Bairro <i class="icon-sort"></i></th> 
-                        <th class="header"> Cidade<i class="icon-sort"></i></th>
-                        <th class="header"> UF<i class="icon-sort"></i></th> 
+                        <th class=""> CEP<i class="icon-sort"></i></th>
+                        <th class=""> Rua <i class="icon-sort"></i></th> 
+                        <th class=""> Bairro <i class="icon-sort"></i></th> 
+                        <th class=""> Cidade<i class="icon-sort"></i></th>
+                        <th class=""> UF<i class="icon-sort"></i></th> 
                         
                        
                     </tr> 
