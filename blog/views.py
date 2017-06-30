@@ -20,9 +20,6 @@ class PostList(ListView):
         return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
 
-#assinatura do post feito com generics views
-#posts_list = PostList.as_view()
-
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post':post})

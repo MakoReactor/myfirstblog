@@ -1,0 +1,32 @@
+{% extends 'newblog/base.html' %}
+{% block content %}
+<!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-preview">
+                        <h1>{{ post.title }}</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">Postado por <a href="#">{{ post.author }}</a> on {{ post.published_date }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+
+{% endblock %}
