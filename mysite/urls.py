@@ -24,5 +24,5 @@ urlpatterns = [
     url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
     url(r'', include('blog.urls')),
     url(r'^gitdados/', include('gitdados.urls')),
-    url(r'^blog/', include('newblog.urls')),
+    url(r'^newblog/', include('newblog.urls')),
 ]
