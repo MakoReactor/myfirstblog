@@ -1,9 +1,9 @@
 from django.conf.urls import url
-from .views import IndexList, post_detail
+from newblog.views import IndexList, post_detail
 
 urlpatterns = [
-    url(r'^$', IndexList.as_view(), name='index'),
-    url(r'^post/(?P<pk>\d+)/$', post_detail, name='post_detail'),
+    url(r'^$', IndexList.as_view(), name='new_index'),
+    url(r'^newblog/post/(?P<pk>\d+)/$', post_detail, name='new_post_detail'),
 
-    
+
 ]
