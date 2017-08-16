@@ -7,7 +7,7 @@ from .forms import MeuCepForm
 
 def mycep(request):
     template_name = 'gitdados/mycep.html'
-    context = {}  
+    context = {}
 
     if request.method == "POST":
         form = MeuCepForm(request.POST)
@@ -23,7 +23,7 @@ def mycep(request):
         context = {
         'form':form
         }
-        
+
     return render(request, template_name, context)
 
 

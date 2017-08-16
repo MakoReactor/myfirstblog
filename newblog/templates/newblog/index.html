@@ -6,7 +6,7 @@
 
             {% for post in posts %}
                 <div class="post-preview">
-                    <a href="{% url 'post_detail' pk=post.pk %}">
+                    <a href="{% url 'new_post_detail' pk=post.pk %}">
                         <h2 class="post-title">
                             {{ post.title }}
                         </h2>
@@ -17,9 +17,9 @@
                     <p class="post-meta">Postado por <a href="#">{{ post.author }}</a> em {{ post.published_date }}</p>
                 </div>
                 <hr>
-                
-             {% endfor %}  
-                
+
+             {% endfor %}
+
                 <!-- Pager -->
                 {% if is_paginated %}
                   <ul class="pagination">
