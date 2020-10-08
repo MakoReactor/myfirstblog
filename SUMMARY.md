@@ -5,5 +5,4 @@
 ## MInhas coisas
 
 * [Links - Courses](minhas-coisas/links-courses.md)
-* [Untitled](minhas-coisas/untitled.md)
 
