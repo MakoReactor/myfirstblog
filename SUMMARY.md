@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Inicio](README.md)
+* [Wiki pessoal](README.md)
 
 ## MInhas coisas
 
